@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1689665599 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
+	<curl/curl.h>
+	<string>
+	<iostream>
+	<json11.hpp>
+
