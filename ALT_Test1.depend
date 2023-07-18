@@ -1,28 +1,28 @@
 # depslib dependency file v1.0
-1689683294 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
-	<curl/curl.h>
+1689693623 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
 	<string>
 	<iostream>
-	<json11.hpp>
-	<unordered_map>
 	"Package.h"
 	"CurlWrapper.h"
-
-1689682757 /home/aleh/CodeBlocks_projects/ALT_Test1/include/Package.h
-
-1689679438 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/getPackageMap.cpp
 	"getPackageMap.h"
 
-1689679811 /home/aleh/CodeBlocks_projects/ALT_Test1/include/getPackageMap.h
+1689689152 /home/aleh/CodeBlocks_projects/ALT_Test1/include/Package.h
+
+1689693864 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/getPackageMap.cpp
+	"getPackageMap.h"
+	<json11.hpp>
+	<iostream>
+
+1689693868 /home/aleh/CodeBlocks_projects/ALT_Test1/include/getPackageMap.h
 	<unordered_map>
 	<string>
-	<curl/curl.h>
+	<memory>
 	"Package.h"
 
-1689684113 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/CurlWrapper.cpp
+1689693369 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/CurlWrapper.cpp
 	"CurlWrapper.h"
 
-1689682524 /home/aleh/CodeBlocks_projects/ALT_Test1/include/CurlWrapper.h
+1689693015 /home/aleh/CodeBlocks_projects/ALT_Test1/include/CurlWrapper.h
 	<curl/curl.h>
 	<string>
 	<iostream>

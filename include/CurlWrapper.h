@@ -14,10 +14,12 @@ class CurlWrapper
         CurlWrapper& operator= (const CurlWrapper&) = delete;
         ~CurlWrapper();
 
-        const std::string& perfomReq(std::string branch);
+        // perfom request to server, returns json response string
+        const std::string perfomReq(std::string branch);
 
     // callback for curl
     static size_t writeCallback(void *contents, size_t sz, size_t nmemb, void *userp);
+
 
     private:
         std::string readBuffer;

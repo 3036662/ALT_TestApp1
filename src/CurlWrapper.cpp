@@ -28,6 +28,7 @@ CurlWrapper::~CurlWrapper()
      curl_easy_cleanup(curl);
 }
 
+
 // callback for CURL
 size_t CurlWrapper::writeCallback(void *contents, size_t sz, size_t nmemb, void *userp){
    //((std::string*)userp)->append((char*)contents, sz * nmemb);
@@ -42,7 +43,8 @@ size_t CurlWrapper::writeCallback(void *contents, size_t sz, size_t nmemb, void 
 }
 
 // get Response string for branch
-const std::string& CurlWrapper::perfomReq(std::string branch){
+const std::string CurlWrapper::perfomReq(std::string branch){
+    readBuffer.clear();
     std::string req_url="https://rdb.altlinux.org/api/export/branch_binary_packages/";
     // curl_easy_escape yelds to memory leak 32 bytes
     //req_url+=curl_easy_escape(curl,branch.c_str(),branch.size());
