@@ -1,7 +1,11 @@
 # depslib dependency file v1.0
-1689665599 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
+1689677688 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
 	<curl/curl.h>
 	<string>
 	<iostream>
 	<json11.hpp>
+	<unordered_map>
+	"Package.h"
+
+1689676161 /home/aleh/CodeBlocks_projects/ALT_Test1/include/Package.h
 
