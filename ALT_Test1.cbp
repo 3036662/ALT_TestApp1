@@ -36,9 +36,11 @@
 		</Compiler>
 		<Unit filename="include/CurlWrapper.h" />
 		<Unit filename="include/Package.h" />
+		<Unit filename="include/SortMap.h" />
 		<Unit filename="include/getPackageMap.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/CurlWrapper.cpp" />
+		<Unit filename="src/SortMap.cpp" />
 		<Unit filename="src/getPackageMap.cpp" />
 		<Extensions />
 	</Project>

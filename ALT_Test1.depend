@@ -1,19 +1,20 @@
 # depslib dependency file v1.0
-1689693623 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
+1689700665 source:/home/aleh/CodeBlocks_projects/ALT_Test1/main.cpp
 	<string>
 	<iostream>
 	"Package.h"
 	"CurlWrapper.h"
 	"getPackageMap.h"
+	"SortMap.h"
 
-1689689152 /home/aleh/CodeBlocks_projects/ALT_Test1/include/Package.h
+1689695477 /home/aleh/CodeBlocks_projects/ALT_Test1/include/Package.h
 
-1689693864 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/getPackageMap.cpp
+1689695533 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/getPackageMap.cpp
 	"getPackageMap.h"
 	<json11.hpp>
 	<iostream>
 
-1689693868 /home/aleh/CodeBlocks_projects/ALT_Test1/include/getPackageMap.h
+1689697582 /home/aleh/CodeBlocks_projects/ALT_Test1/include/getPackageMap.h
 	<unordered_map>
 	<string>
 	<memory>
@@ -26,4 +27,17 @@
 	<curl/curl.h>
 	<string>
 	<iostream>
+
+1689705927 source:/home/aleh/CodeBlocks_projects/ALT_Test1/src/SortMap.cpp
+	"SortMap.h"
+	<iostream>
+	<string>
+
+1689705800 /home/aleh/CodeBlocks_projects/ALT_Test1/include/SortMap.h
+	<unordered_map>
+	<string>
+	<vector>
+	<memory>
+	"Package.h"
+	"getPackageMap.h"
 

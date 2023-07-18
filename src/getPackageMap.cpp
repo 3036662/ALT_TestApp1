@@ -6,7 +6,7 @@
 std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::string& branch){
     std::string err;
     const json11::Json jsonResponseObject = json11::Json::parse(jsonStr, err);
-    std::cerr<<"Packages found in branch "<<branch<<jsonResponseObject["length"].int_value()<<std::endl;
+    std::cerr<<"Packages found in branch "<<branch<<" = "<<jsonResponseObject["length"].int_value()<<std::endl;
     const std::vector<json11::Json>& packagesArr=jsonResponseObject["packages"].array_items();
 
 
@@ -20,7 +20,11 @@ std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::st
                   (*it)["version"].string_value(),
                   (*it)["release"].string_value(),
                   (*it)["arch"].string_value(),
-                  (*it)["epoch"].int_value());
+                  (*it)["epoch"].int_value(),
+                  (*it)["disttag"].string_value(),
+                  (*it)["buildtime"].int_value(),
+                 (*it)["source"].string_value());
+
 
 
         // create architecture in map if not exists
