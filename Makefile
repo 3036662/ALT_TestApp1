@@ -44,6 +44,11 @@ remake: uninstallLib cleanup lib installLib client
 
 cleanobjs: builddir
 	rm -r $(BUILD_DIR)/*.o
+
+install: lib installLib client
+	cp $(BUILD_DIR)/ALT_test1 /usr/local/bin
+remove: uninstallLib	
+	rm /usr/local/bin/ALT_test1
 	 
 	
 	
