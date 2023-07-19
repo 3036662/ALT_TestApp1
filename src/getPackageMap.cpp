@@ -28,7 +28,7 @@ std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::st
 
 
         // create architecture in map if not exists
-        prootMap->emplace(p.arch,std::unordered_multimap<std::string, Package>() );
+        prootMap->emplace(p.arch,std::unordered_map<std::string, Package>() );
         // push object to submap
         (*prootMap)[p.arch].emplace(p.name,p);
     }

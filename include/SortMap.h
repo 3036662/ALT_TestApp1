@@ -21,13 +21,8 @@ map {
 }
 */
 
-typedef  std::unordered_map< // for architectures
-                        std::string, // architecture
-                        std::vector<Package>>  Architecture;
-
-typedef std::unordered_map <
-    std::string, // criteria like MissingInSec
-    Architecture> ResultTree;
+typedef  std::unordered_map<std::string, std::vector<Package>>  Architecture;
+typedef std::unordered_map <std::string,Architecture> ResultTree;
 
 // class holds methods for rootMap objects sorting
 class SortMap
@@ -39,18 +34,19 @@ class SortMap
         SortMap(const RootMap* const b1, const RootMap* const b2 );
         ~SortMap();
 
-
         void findMissingInSecond();
         void findMissingInFirst();
+        void findVersionOrReleaseNewer();
+        const std::string getJsonResponse();
 
-
-    protected:
 
     private:
-    void findMissing(const RootMap* const pb1,const RootMap* const pb2,  const std::string& criteria);
-    const RootMap* const pbranch1;
-    const RootMap* const pbranch2;
-    std::unique_ptr<ResultTree> resTree; // result structure
+        void findMissing(const RootMap* const pb1,const RootMap* const pb2,  const std::string& criteria);
+        const RootMap* const pbranch1;
+        const RootMap* const pbranch2;
+        std::unique_ptr<ResultTree> resTree; // result structure
+
+
 };
 
 #endif // SORTMAP_H

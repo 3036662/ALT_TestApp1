@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 
-
 #include "Package.h"
 #include "CurlWrapper.h"
 #include "getPackageMap.h"
@@ -27,13 +26,26 @@ int main(void)
     std::unique_ptr<RootMap> branch2Map=getPackageMap(*pjsonString2,branch2);
     delete pjsonString2;
 
-    // sort Maps
+    std::string resJsonString;
+    // sort Maps{
+    {
     SortMap sm(branch1Map.get(),branch2Map.get());
 
     sm.findMissingInSecond();
     sm.findMissingInFirst();
+    sm.findVersionOrReleaseNewer();
+    branch1Map.reset();
+    branch2Map.reset();
+    resJsonString=sm.getJsonResponse();
+    }
+
+    std::cout<<resJsonString;
+
+
 
     char tmp;
    std::cin>>tmp;
+
+
   return 0;
 }

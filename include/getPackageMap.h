@@ -18,10 +18,8 @@ map{
     }
 }
 */
-typedef std::unordered_map <std::string, std::unordered_multimap <std::string, Package>>  RootMap;
-
+typedef std::unordered_map <std::string, std::unordered_map <std::string, Package>>  RootMap;
 // parses json string to map of objects
 std::unique_ptr<RootMap>  getPackageMap(const std::string& , const std::string& );
-
 
 #endif // PERFORMCURLREQUEST_H
