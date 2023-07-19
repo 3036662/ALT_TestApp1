@@ -1,16 +1,20 @@
 #include <string>
 #include <iostream>
+#include <cstring>
 
 #include "Package.h"
 #include "CurlWrapper.h"
 #include "getPackageMap.h"
 #include "SortMap.h"
 
-const char* branch1="p10";
-const char* branch2="p9";
+//const char* branch1="p10";
+//const char* branch2="p9";
+extern "C"{
+    char* getJsonResult(const char* ,const char* , char* (*pf) (unsigned) );
+}
 
-int main(void)
-{
+
+char*  getJsonResult(const char* branch1,const char* branch2,char* (*pf) (unsigned)){
 
 
     std::string* pjsonString1=new std::string{};
@@ -26,9 +30,12 @@ int main(void)
     std::unique_ptr<RootMap> branch2Map=getPackageMap(*pjsonString2,branch2);
     delete pjsonString2;
 
-    std::string resJsonString;
+
+
+     char*  ptr_to_buffer=nullptr;
     // sort Maps{
     {
+    std::string resJsonString;
     SortMap sm(branch1Map.get(),branch2Map.get());
 
     sm.findMissingInSecond();
@@ -37,15 +44,9 @@ int main(void)
     branch1Map.reset();
     branch2Map.reset();
     resJsonString=sm.getJsonResponse();
+    ptr_to_buffer=pf(resJsonString.size()+1); //get buffer from callback
+    if (ptr_to_buffer) strcpy(ptr_to_buffer,resJsonString.c_str()); // copy string to buffer
     }
+    return ptr_to_buffer; // pointer res buffer
 
-    std::cout<<resJsonString;
-
-
-
-    char tmp;
-   std::cin>>tmp;
-
-
-  return 0;
 }

@@ -47,13 +47,14 @@ const std::string CurlWrapper::perfomReq(std::string branch){
     readBuffer.clear();
     std::string req_url="https://rdb.altlinux.org/api/export/branch_binary_packages/";
     // curl_easy_escape yelds to memory leak 32 bytes
-    //req_url+=curl_easy_escape(curl,branch.c_str(),branch.size());
-    req_url+=branch;
+    req_url+=curl_easy_escape(curl,branch.c_str(),branch.size());
+    //req_url+=branch;
     curl_easy_setopt(curl, CURLOPT_URL, req_url.c_str());
     std::cerr << "Making request to "<<req_url<< std::endl;
     CURLcode res = curl_easy_perform(curl);
     if(res != CURLE_OK) {
         std::cerr<<"cUrl request to server failed: \n"<<curl_easy_strerror(res)<<std::endl;
+        std::cerr<<"!!!"<<std::endl<<"Looks like you passed wrong branch names"<<std::endl;
         readBuffer.clear();
     }
     readBuffer.shrink_to_fit();

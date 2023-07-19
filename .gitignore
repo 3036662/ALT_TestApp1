@@ -1,5 +1,7 @@
 /bin
 /obj
+/build
+*.json
 *.cbp
 *.depend
 

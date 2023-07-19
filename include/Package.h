@@ -23,7 +23,7 @@ class Package
                 const std::string& dtag,int bt,const std::string src);
         // constructor for differense info
         Package(const Package& p1,const Package& p2);
-
+        ~Package(){};
         json11::Json to_json() const; //cast to json
 };
 
