@@ -33,6 +33,15 @@ char*  getJsonResult(const char* branch1,const char* branch2,char* (*pf) (unsign
 
 
      char*  ptr_to_buffer=nullptr;
+
+     if (branch1Map->empty() || branch2Map->empty() ){
+            const std::string errJsonStr{"{\"Error\":\"One ore both branch are empty, nothing to compare. Check branch names.\"}"};
+            std::cerr<<"One ore both branchs are empty, nothing to compare. Check branch names, please"<<std::endl;
+            ptr_to_buffer=pf(errJsonStr.size()+1);
+            strcpy(ptr_to_buffer,errJsonStr.c_str());
+            return ptr_to_buffer;
+     }
+
     // sort Maps{
     {
     std::string resJsonString;
