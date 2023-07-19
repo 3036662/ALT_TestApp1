@@ -10,7 +10,7 @@ enum HelpNeeded{
     SAME_ARGS,
 };
 
-char* callback(unsigned);
+char* bufferAllocator(unsigned size);
 void printHelp(HelpNeeded);
 
 int main(int argc, char* argv[]){
@@ -25,7 +25,7 @@ int main(int argc, char* argv[]){
             printHelp(HelpNeeded::SAME_ARGS);
             return 1;
     }
-    pRes=getJsonResult(argv[1],argv[2],callback);
+    pRes=getJsonResult(argv[1],argv[2],bufferAllocator);
     std::cout<<pRes;
     delete[] pRes;
     return 0;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
 
 
 
-char* callback(unsigned size){
+char* bufferAllocator(unsigned size){
     return new char[size];
 }
 
