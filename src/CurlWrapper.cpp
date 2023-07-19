@@ -55,9 +55,10 @@ const std::string CurlWrapper::perfomReq(std::string branch){
     if(res != CURLE_OK) {
         std::cerr<<"cUrl request to server failed: \n"<<curl_easy_strerror(res)<<std::endl;
         std::cerr<<"!!!"<<std::endl<<"Looks like you passed wrong branch names"<<std::endl;
+        std::cerr<<"Allowed branches examples: sisyphus, p9, p10"<<std::endl;
         readBuffer.clear();
     }
     readBuffer.shrink_to_fit();
-    std::cerr<<"Downoladed data size: "<<readBuffer.size()<<std::endl;
+    std::cerr<<"Downoladed data size: "<<readBuffer.size()<<std::endl<<"..."<<std::endl;
     return readBuffer;
 }

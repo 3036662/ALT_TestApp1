@@ -48,4 +48,5 @@ void printHelp(HelpNeeded c){
             ;
     }
     std::cerr<<"Usage example:  ALT_Test1 branch1 branch2 >output.json"<<std::endl;
+    std::cerr<<"Allowed branches examples: sisyphus, p9, p10"<<std::endl;
 };

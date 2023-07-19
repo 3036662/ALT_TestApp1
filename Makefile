@@ -7,7 +7,7 @@ LINKFILES_FULL = $(LINKFILES:%.o=$(BUILD_DIR)/%.o)
 
 BUILD_DIR=./build
 	
-all: builddir libObj lib installLib client
+all: builddir libObj lib installLib client cleanobjs
 #   
 
 builddir:
@@ -27,7 +27,7 @@ SortMap.o:
 lib:   builddir libObj
 	$(CC) -shared  -Wl,-soname,libtestlibforALT.so.1 -o $(BUILD_DIR)/libtestlibforALT.so.1.0 $(LINKFILES_FULL) -lcurl -ljson11
 	
-client.o:	
+client.o: builddir	
 	$(CC) -Wall -O2 -c -o $(BUILD_DIR)/client.o ./client.cpp
 client: client.o
 	$(CC) -o $(BUILD_DIR)/ALT_test1 $(BUILD_DIR)/client.o -L/usr/local/lib -ltestlibforALT 
@@ -36,9 +36,12 @@ installLib: $(BUILD_DIR)/libtestlibforALT.so.1.0
 	cp $(BUILD_DIR)/libtestlibforALT.so.1.0 /usr/local/lib; ldconfig   
 uninstallLib:
 	 rm /usr/local/lib/libtestlibforALT*
-cleanup:uninstallLib
-	rm -r $(BUILD_DIR)
+cleanup: uninstallLib builddir
+	rm -r $(BUILD_DIR)	
 remake: uninstallLib cleanup lib installLib client	 
+
+cleanobjs: builddir
+	rm -r $(BUILD_DIR)/*.o
 	 
 	
 	
