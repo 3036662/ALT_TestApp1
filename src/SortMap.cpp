@@ -67,7 +67,7 @@ void SortMap::findVersionOrReleaseNewer(){
     // for each arch
     for (auto itArch = pbranch1->cbegin(); itArch!=pbranch1->end(); ++itArch){
         const std::string& arch=itArch->first;
-        if (pbranch2->find(arch) == 0){ continue;} // no even such architecture
+        if (pbranch2->count(arch) == 0){ continue;} // no even such architecture
         // for each package in branch 1;
         for (auto itPack = itArch->second.cbegin(); itPack !=itArch->second.cend(); ++itPack ){
              const std::string& packName = itPack->first; // package name in br1
