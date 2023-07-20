@@ -2,7 +2,7 @@ PREFIX=/usr/local
 CC=g++
 LIBDIR=/lib
 BINDIR=/bin
-INCLUDEDIR=/include 
+INCLUDEDIR=/include
 CFLAGS=-c -Iinclude -Wall -fPIC -g 
 LINKDIR=/usr/local/lib
 #CFLAGS=-c  -fPIC -g -Wall -fexceptions -O2 -Wnon-virtual-dtor -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -pedantic-errors -pedantic -Wfatal-errors -Wextra -Wall -Iinclude 
@@ -48,18 +48,16 @@ installLib:
 	ln -s  $(PREFIX)/$(LIBDIR)/libtestlibforALT.so.1.0 $(PREFIX)/$(LIBDIR)/libtestlibforALT.so
 	cp testlibforalt.h $(PREFIX)$(INCLUDEDIR) 
 uninstallLib:
-	 rm $(PREFIX)$(LIBDIR)/libtestlibforALT*
-	 rm  $(PREFIX)$(INCLUDEDIR)/testlibforalt.h
-installEx: 
-	mkdir -p $(PREFIX)/$(BINDIR)
-	install $(BUILD_DIR)/ALT_test1 $(PREFIX)/$(BINDIR)
+	 rm $(PREFIX)/$(LIBDIR)/libtestlibforALT*
+	 rm  $(PREFIX)/$(INCLUDEDIR)/testlibforalt.h
+
 #-------------------------------------------		 
 cleanup:  builddir
 	rm -r $(BUILD_DIR)	
 remake: uninstallLib cleanup lib installLib 	 
 
 remove: uninstallLib	
-	rm $(PREFIX)$(BINDIR)/ALT_test1
+
 	 
 	
 	
