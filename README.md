@@ -1,5 +1,5 @@
 # ALT_TestApp1
-Simple CLI application for package branches analysis in repository
+Simple CLI application for package branches analysis in repository.
 Application dowloads lists of packages for two branches and compares it
 The result consists json string with three objets:
 
