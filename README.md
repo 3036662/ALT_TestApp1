@@ -41,14 +41,7 @@ To install (you need super user rights):
 su-
 apt-get install libjson11  libcurl libjson11-devel libcurl-devel 
 ```
-### Install	
-1. Download prebuilt packages from RPM folder: libALT_test1-1.0-alt1.x86_64.rpm and clientALT_test1-1.0-alt1.x86_64.rpm
-2. Go to folder with rpms and install first library package, then client package:
-```
-su-
-apt-get install libALT_test1-1.0-alt1.x86_64.rpm
-apt-get install clientALT_test1-1.0-alt1.x86_64.rpm
-```
+
 Done!
 
 ## Install from source
