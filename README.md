@@ -79,7 +79,7 @@ git clone https://github.com/3036662/ALT_TestApp1.git
 cd ALT_TestApp1
 make
 sudo make install
-ldconfig
+sudo ldconfig
 cd client
 make
 sudo make install
