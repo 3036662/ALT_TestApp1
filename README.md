@@ -30,9 +30,6 @@ ALT_test1 p10 p9 > result.json
 
 App consists of shared library and executable.
 
-## Install prebuilt packages
-Packages are built for ALT Linux workstaion 10
-
 ### Dependencies
 App depends on json11 and curl libraries
 To install (you need super user rights): 
