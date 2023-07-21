@@ -39,7 +39,7 @@ To install (you need super user rights):
 
 ```
 su-
-apt-get install gcc-c++libjson11  libcurl libjson11-devel libcurl-devel 
+apt-get install libjson11  libcurl libjson11-devel libcurl-devel 
 ```
 ### Install	
 1. Download prebuilt packages from RPM folder: libALT_test1-1.0-alt1.x86_64.rpm and clientALT_test1-1.0-alt1.x86_64.rpm
@@ -54,7 +54,7 @@ Done!
 ## Install from source
 ```
 su -
-apt-get install gcc-c++ libjson11-devel libcurl-devel  git
+apt-get install gcc-c++ libjson11 curl libjson11-devel libcurl-devel  git
 git clone https://github.com/3036662/ALT_TestApp1.git
 cd ALT_TestApp1
 make PREFIX=/usr LIBDIR=lib64
