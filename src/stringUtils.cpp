@@ -71,7 +71,7 @@ int VersionUtils::partCompare (std::vector<std::string> a, std::vector<std::stri
 void VersionUtils::deleteSpaces( std::string& str){
     std::string temp;
     for (size_t i=0;i<str.size();++i){
-        if(str[i]!=' ' || str[i]!='_') temp.push_back(str[i]);
+        if(str[i]!=' ' && str[i]!='_') temp.push_back(str[i]);
     }
     str=temp;
 }
