@@ -80,7 +80,7 @@ void SortMap::findVersionOrReleaseNewer(){
              //if (p1.version>p2.version || p1.release>p2.release){
              //if (p1vr>p2vr){
               if (p1>p2){ // with usage of stringUtils
-                    std::cerr <<" version = " << p1.version +" release "+p1.release << " > " << p2.version+" release "+p2.release <<std::endl;
+                    //std::cerr <<" version = " << p1.version +" release "+p1.release << " > " << p2.version+" release "+p2.release <<std::endl;
                     (*resTree)[criteria][arch].emplace_back(p1,p2);
                }
 
