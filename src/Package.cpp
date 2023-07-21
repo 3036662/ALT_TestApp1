@@ -1,4 +1,8 @@
 #include "Package.h"
+#include "stringUtils.h"
+
+using namespace VersionUtils;
+
 //simple constructor from strings
 Package::Package(const std::string& name_,const std::string& version_,
                 const std::string& release_,const std::string& arch_,int epoch_,
@@ -57,6 +61,12 @@ json11::Json Package::to_json() const {
                    {"versionInSecond",versionInSecond},
                    {"releaseInSecond",releaseInSecond},
                    };
+}
+
+bool Package::operator > (const Package& p2) const{
+        int res=versBigger(version,p2.version);
+        if ( res == 0 )  res=versBigger(release,p2.release);
+        return res==1;
 }
 
 

@@ -25,6 +25,8 @@ class Package
         Package(const Package& p1,const Package& p2);
         ~Package(){};
         json11::Json to_json() const; //cast to json
+
+        bool operator > (const Package& p2) const;
 };
 
 

@@ -7,7 +7,7 @@ CFLAGS=-c -Iinclude -Wall -fPIC -g
 LINKDIR=/usr/local/lib
 #CFLAGS=-c  -fPIC -g -Wall -fexceptions -O2 -Wnon-virtual-dtor -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -pedantic-errors -pedantic -Wfatal-errors -Wextra -Wall -Iinclude 
 LNKFLAGS= -shared -Wl,-soname,
-LINKFILES =testlib.o CurlWrapper.o getPackageMap.o Package.o SortMap.o
+LINKFILES =testlib.o CurlWrapper.o getPackageMap.o Package.o SortMap.o stringUtils.o
 LINKFILES_FULL = $(LINKFILES:%.o=$(BUILD_DIR)/%.o)
 
 BUILD_DIR=./build
@@ -33,8 +33,10 @@ Package.o:
 	$(CC) $(CFLAGS) -o $(BUILD_DIR)/Package.o  ./src/Package.cpp
 SortMap.o:
 	$(CC) $(CFLAGS) -o $(BUILD_DIR)/SortMap.o ./src/SortMap.cpp
+stringUtils.o:
+	$(CC) $(CFLAGS) -o $(BUILD_DIR)/stringUtils.o ./src/stringUtils.cpp
 
-libObj: testlib.o CurlWrapper.o getPackageMap.o Package.o SortMap.o 	
+libObj: testlib.o CurlWrapper.o getPackageMap.o Package.o SortMap.o stringUtils.o	
 	
 lib:    builddir libObj 
 	$(CC) -shared  -Wl,-soname,libtestlibforALT.so.1 -o $(BUILD_DIR)/libtestlibforALT.so.1.0 $(LINKFILES_FULL) -lcurl -ljson11
