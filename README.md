@@ -10,9 +10,9 @@ The result consists json string with three objets:
 Each parts contains architectures: aarch64, armg, i586, etc.
 Each architecture contains array of "package info" (objects
 releaseInSecond,versionInSecond fields contained only in the third branch) ,for example:
-
+```
 {"NewerInFirst":{"aarch64":[  {"buildtime":"1683218638","disttag":"sisyphus+319372.300.3.1","epoch":1,"name":"zsh-debuginfo","release":"alt1","releaseInSecond":"alt2","source":"zsh","version":"5.9","versionInSecond":"5.8.1,"}]}}
-
+```
 Size of JSON string is rather large, so it recomendded to open it with some web-browser.
 
 # Usage 
