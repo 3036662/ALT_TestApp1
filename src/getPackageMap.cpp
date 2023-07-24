@@ -15,6 +15,10 @@ std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::st
 
     // create map
     for (auto it=packagesArr.begin();it!=packagesArr.end();++it){
+
+        //if package contains "-" -> it is binary package , so skip it
+        if ( (*it)["name"].string_value().find('-')!=std::string::npos ) {continue;}
+
         // create object package
         Package p((*it)["name"].string_value(),
                   (*it)["version"].string_value(),
@@ -37,7 +41,7 @@ std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::st
         mappedCount+=it->second.size();
     }
 
-    std::cerr<<"Mapped " << mappedCount << " objects from " << packagesArr.size() << std::endl;
+    std::cerr<<"Mapped " << mappedCount << " source packages from " << packagesArr.size() << std::endl;
     std::cerr<<"..."<<std::endl;
     return prootMap;
 }
