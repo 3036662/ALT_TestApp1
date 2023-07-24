@@ -17,7 +17,7 @@ int findNonNumber(const std::string& str);
 std::vector<std::string> splitByLetters ( std::string str );
 
 // compare atomic parts
-int partCompareAtomic (const std::string& a, const std::string& b);
+int partCompareAtomic ( std::string a,  std::string b);
 
 // two pars of verstion splitted by simbols exampl  [123,a,1] and [123,b,2] compare
 int partCompare (std::vector<std::string> a, std::vector<std::string> b);
