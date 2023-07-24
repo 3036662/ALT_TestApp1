@@ -17,7 +17,7 @@ std::unique_ptr<RootMap> getPackageMap(const std::string& jsonStr, const std::st
     for (auto it=packagesArr.begin();it!=packagesArr.end();++it){
 
         //if package contains "-" -> it is binary package , so skip it
-        if ( (*it)["name"].string_value().find('-')!=std::string::npos ) {continue;}
+       // if ( (*it)["name"].string_value().find('-')!=std::string::npos ) {continue;}
 
         // create object package
         Package p((*it)["name"].string_value(),
