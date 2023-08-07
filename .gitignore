@@ -1,6 +1,7 @@
 /bin
 /obj
 /build
+/client/ALT_test1
 *.json
 *.cbp
 *.depend
