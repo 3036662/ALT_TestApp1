@@ -48,7 +48,7 @@ lib:    builddir libObj
 installLib: 
 	install $(BUILD_DIR)/libtestlibforALT.so.1.0 $(PREFIX)/$(LIBDIR);  
 	rm -f  $(PREFIX)/$(LIBDIR)/libtestlibforALT.so
-	ln -s  $(PREFIX)/$(LIBDIR)/libtestlibforALT.so.1.0 $(PREFIX)/$(LIBDIR)/libtestlibforALT.so
+	ln -rs  $(PREFIX)/$(LIBDIR)/libtestlibforALT.so.1.0 $(PREFIX)/$(LIBDIR)/libtestlibforALT.so
 	cp testlibforalt.h $(PREFIX)$(INCLUDEDIR) 
 uninstallLib:
 	 rm $(PREFIX)/$(LIBDIR)/libtestlibforALT*
