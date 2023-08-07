@@ -39,6 +39,8 @@ make # PREFIX=$RPM_BUILD_ROOT/%{_usr} LIBDIR=%{_lib}
 mkdir -p $RPM_BUILD_ROOT%{_usr}/%{_lib}
 mkdir -p $RPM_BUILD_ROOT%{_usr}/include
 
+# not sure about this, but .so files is needed to build client
+# so just copy .so , build and link , and cleanup
 cp ./build/libtestlibforALT.so.1.0 $RPM_BUILD_ROOT/%{_usr}/%{_lib}
 rm -f $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so   
 ln -s $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so.1.0 $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so   
