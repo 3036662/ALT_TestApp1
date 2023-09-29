@@ -1,4 +1,4 @@
-Name: libALT_test
+Name: ALT_TestApp
 Version: 1.0
 Release: alt1
 
@@ -21,7 +21,7 @@ Shared library for program
 %package client
 Summary: client executable for ALT_test1
 Group: System/Libraries
-Requires: libALT_test1-lib
+Requires: ALT_TestApp-lib
 %description client
 Executable client
 
