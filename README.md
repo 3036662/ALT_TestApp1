@@ -43,43 +43,21 @@ Done!
 
 ## Install from source
 ```
-su -
-apt-get install gcc-c++ libjson11 curl libjson11-devel libcurl-devel  git
-git clone https://github.com/3036662/ALT_TestApp1.git
-cd ALT_TestApp1
-make PREFIX=/usr LIBDIR=lib64
-make install PREFIX=/usr LIBDIR=/lib64
-ldconfig
-cd client
-make  PREFIX=/usr  LINKDIR=/usr/lib64
-make install  PREFIX=/usr
-```
-### Remove built from source  
-```
-cd client
-make remove PREFIX=/usr
-cd ..
-make remove PREFIX=/usr LIBDIR=/lib64
-ldconfig
-```
-# Installation in Ubuntu  
-```
-sudo apt-get install g++ git libjson11-1-dev curl libcurl4-openssl-dev
-git clone https://github.com/3036662/ALT_TestApp1.git
-cd ALT_TestApp1
-make
-sudo make install
-sudo ldconfig
-cd client
-make
-sudo make install
+cmake -S . -B build_result
+cmake --build build_result
+cmake --install build_result
+
 ```
 ## Uninstall  
 ```
-cd ALT_TestApp1
-sudo make remove
-cd client
-sudo make remove
+#super user
+su-
+rm -rf /usr/lib64/libtestlibforALT.so.1
+rm -rf /usr/lib64/libtestlibforALT.so.1.0
+rm -rf /usr/include/testlibforalt.h
+rm -rf /usr/lib64/libtestlibforALT.so
+rm -rf /usr/bin/ALT_test1
+
 ```
 # Notes
 It's possible you can find memory leak 64 bytes in 2 blocks, the reason is bug in CURL library - curl_easy_escape function(), bugreport already exists.
