@@ -36,6 +36,7 @@ To install (you need super user rights):
 
 ```
 su-
+apt-get install gcc-c++ cmake make
 apt-get install libjson11  libcurl libjson11-devel libcurl-devel 
 ```
 
