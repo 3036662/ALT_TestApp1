@@ -9,6 +9,8 @@ Group: System/Libraries
 Url: https://github.com/3036662/ALT_TestApp1
 License: GPL
 
+BuildRequires: gcc-c++ cmake
+
 %description
 This library compares ALT repo branches
 
