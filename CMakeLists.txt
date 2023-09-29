@@ -21,7 +21,7 @@ add_subdirectory(src)
 target_link_libraries(testlibforALT PRIVATE CurlWrapper StringUtils SortMap)
 target_link_libraries(testlibforALT PRIVATE PkgConfig::JSON11 PkgConfig::CURL)
 set_target_properties(testlibforALT PROPERTIES VERSION ${CMAKE_PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR} )
-target_include_directories(testlibForALT PUBLIC 
+target_include_directories(testlibforALT PUBLIC 
 	 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 	 $<INSTALL_INTERFACE:include>
 )
