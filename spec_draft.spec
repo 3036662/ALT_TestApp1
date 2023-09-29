@@ -1,18 +1,18 @@
-Name: libALT_test1
+Name: libALT_test
 Version: 1.0
 Release: alt1
 
 Summary: library for repo branch compare
-Source: libALT_test1.tar.gz
+Source: %name-%version.tar
 
 Group: System/Libraries
 Url: https://github.com/3036662/ALT_TestApp1
-License:  GPL
+License: GPL
 
 %description
 This library compares ALT repo branches
 
-%package lib 
+%package lib
 Summary: shared library for ALT_test1
 Group: System/Libraries
 %description lib
@@ -21,7 +21,7 @@ Shared library for program
 %package client
 Summary: client executable for ALT_test1
 Group: System/Libraries
-Requires: libALT_test1-lib 
+Requires: libALT_test1-lib
 %description client
 Executable client
 
@@ -35,37 +35,21 @@ Dev files
 %prep
 %setup
 %build
-make # PREFIX=$RPM_BUILD_ROOT/%{_usr} LIBDIR=%{_lib} 
-mkdir -p $RPM_BUILD_ROOT%{_usr}/%{_lib}
-mkdir -p $RPM_BUILD_ROOT%{_usr}/include
+%cmake
+%cmake_build
 
-# not sure about this, but .so files are needed to build client
-# so just copy .so , build and link , and then cleanup
-cp ./build/libtestlibforALT.so.1.0 $RPM_BUILD_ROOT/%{_usr}/%{_lib}
-rm -f $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so   
-ln -s $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so.1.0 $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so   
-cp testlibforalt.h $RPM_BUILD_ROOT/%{_usr}/include
-make --directory=client PREFIX=$RPM_BUILD_ROOT/%{_usr} LINKDIR=$RPM_BUILD_ROOT/%{_usr}/%{_lib}
-rm -f $RPM_BUILD_ROOT/%{_usr}/%{_lib}/libtestlibforALT.so*
-rm -f $RPM_BUILD_ROOT/%{_usr}/include/testlibforalt.h 
 
-%install 
-mkdir -p $RPM_BUILD_ROOT%{_usr}/%{_lib}
-mkdir -p $RPM_BUILD_ROOT%{_usr}/include
-make install PREFIX=$RPM_BUILD_ROOT/%{_usr} LIBDIR=%{_lib}
-mkdir -p $RPM_BUILD_ROOT/%{_bindir}
-make install --directory=client PREFIX=$RPM_BUILD_ROOT BINDIR=%{_bindir}
-
+%install
+%cmake_install
 
 %files lib
-%{_usr}/%{_lib}/libtestlibforALT.so.1.0 
-%{_usr}/%{_lib}/libtestlibforALT.so.1
+%_usr/%_lib/libtestlibforALT.so.1.0
+%_usr/%_lib/libtestlibforALT.so.1
 
-%files client 
-%{_bindir}/ALT_test1
+%files client
+%_bindir/ALT_test1
 
 %files devel
-%{_includedir}/testlibforalt.h
-%{_usr}/%{_lib}/libtestlibforALT.so
-
+%_includedir/testlibforalt.h
+%_usr/%_lib/libtestlibforALT.so
 

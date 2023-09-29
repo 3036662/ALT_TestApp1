@@ -6,4 +6,12 @@
 *.cbp
 *.depend
 *.layout
-
+CMakeCache.txt
+CMakeLists.txt~
+CMakeLists.txt.swp
+.gitignore.swp
+.gitignore~
+.gitignore.swo
+*.swp
+*.spec~
+.gear
