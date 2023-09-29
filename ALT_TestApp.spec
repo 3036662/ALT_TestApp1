@@ -9,7 +9,8 @@ Group: System/Libraries
 Url: https://github.com/3036662/ALT_TestApp1
 License: GPL
 
-BuildRequires: gcc-c++ cmake rpm-macros-cmake
+BuildRequires: gcc-c++ cmake rpm-macros-cmake libjson11-devel libcurl-devel
+Requires: libjson11 libcurl
 
 %description
 This library compares ALT repo branches
